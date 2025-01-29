@@ -4,7 +4,7 @@ const mongoClient= require("mongodb").MongoClient
 
 require("dotenv").config();
 const app= express()
-const PORT= process.env.MONGO_URI || 4000
+const port= process.env.PORT || 4000
 // const constring="mongodb://localhost:27017"
 
 const constring = process.env.MONGO_URI;
@@ -151,7 +151,7 @@ app.delete('/delete-user/:userid',(req,res)=>{
 })
 
 
-app.listen(PORT,()=>{
+app.listen(port,()=>{
     console.log("server started");
     
 })
