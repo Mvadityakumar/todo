@@ -37,7 +37,7 @@ const AddAppointmentPage = () => {
         // console.log(data);
 
         if(!appointmentidErrorMsg){
-            axios.post('http://127.0.0.1:4000/add-appointment',finaldata).then(()=>{
+            axios.post('https://todoserver-gahb.onrender.com/add-appointment',finaldata).then(()=>{
                 console.log('new appointment added');
                 
             })
@@ -49,7 +49,7 @@ const AddAppointmentPage = () => {
 
 
     const appointmentIdChecking=(e)=>{
-        axios.get(`http://127.0.0.1:4000/get-appointments/${cookie['useridcookie']}`).then(details=>{
+        axios.get(`https://todoserver-gahb.onrender.com/get-appointments/${cookie['useridcookie']}`).then(details=>{
             var id=details.data.find(details=>{
                 return details.appointmentid===parseInt(e.target.value)
               })

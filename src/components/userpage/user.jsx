@@ -31,7 +31,7 @@ const User = () => {
 
 
     const gettingAppointments=()=>{
-        axios.get(`http://127.0.0.1:4000/get-appointments/${cookie['useridcookie']}`).then(appointments=>{
+        axios.get(`https://todoserver-gahb.onrender.com/get-appointments/${cookie['useridcookie']}`).then(appointments=>{
           setappointment(appointments.data)
           // console.log(appointments.data);
        })
@@ -55,7 +55,8 @@ const User = () => {
 
 
   const appointmentDeleteBtn=(e,appointmentid,userid)=>{
-   axios.delete(`http://127.0.0.1:4000/delete-appointment/${appointmentid}/${userid}`)
+   axios.delete(`https://todoserver-gahb.onrender.com/delete-appointment/${appointmentid}/${userid}`)
+
     
     
       gettingAppointments()
@@ -67,14 +68,15 @@ const User = () => {
 
 
   const deleteAllAppointmentsBtn=()=>{
-    axios.delete(`http://127.0.0.1:4000/delete-all-appointments/${cookie['useridcookie']}`).then(()=>{
+    axios.delete(`https://todoserver-gahb.onrender.com/delete-all-appointments/${cookie['useridcookie']}`).then(()=>{
+      gettingAppointments()
       console.log('deleted all appointmments');
       
     })
   } 
 
   const deleteAccountBtn=()=>{
-    axios.delete(`http://127.0.0.1:4000/delete-user/${cookie['useridcookie']}`).then(()=>{
+    axios.delete(`https://todoserver-gahb.onrender.com/delete-user/${cookie['useridcookie']}`).then(()=>{
       console.log("user account deleted");
       removecookie('useridcookie')
       navigate('/')

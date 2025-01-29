@@ -31,7 +31,7 @@ const EditAppointment = () => {
         var actualdetails={...extradetails,...details }
         
         
-        axios.put(`http://127.0.0.1:4000/edit-appointment/${appointmentidparam}/${cookie['useridcookie']}`,actualdetails).then(()=>{
+        axios.put(`https://todoserver-gahb.onrender.com/edit-appointment/${appointmentidparam}/${cookie['useridcookie']}`,actualdetails).then(()=>{
             console.log("data updated");
             
             navigate(`/login/${cookie['useridcookie']}`)
@@ -40,7 +40,7 @@ const EditAppointment = () => {
     }
 
     const appointmentIdChecking=(e)=>{
-        axios.get(`http://127.0.0.1:4000/get-appointments/${cookie['useridcookie']}`).then(details=>{
+        axios.get(`https://todoserver-gahb.onrender.com/get-appointments/${cookie['useridcookie']}`).then(details=>{
             var id=details.data.find(details=>{
                 return details.appointmentid===parseInt(e.target.value)
               })

@@ -18,7 +18,7 @@ const Signup = () => {
   const postuserdata = async (userdetails) => {
     if(!userexistance){
       try {
-        await axios.post('http://127.0.0.1:4000/register-user', userdetails);
+        await axios.post('https://todoserver-gahb.onrender.com/register-user', userdetails);
         console.log('User registered successfully');
         alert("User registered successfully")
         navigate('/login'); // Navigate after successful registration
@@ -30,7 +30,7 @@ const Signup = () => {
 
 
   const userChecking=(e)=>{
-    axios.get('http://127.0.0.1:4000/users').then(users=>{
+    axios.get('https://todoserver-gahb.onrender.com/users').then(users=>{
       var user=users.data.find(userdetails=>{
         return userdetails.userid===e.target.value
       })
