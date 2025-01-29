@@ -2,14 +2,21 @@ const express =require("express")
 const cors =require("cors")
 const mongoClient= require("mongodb").MongoClient
 
-
+require("dotenv").config();
 const app= express()
 
-const constring="mongodb://localhost:27017"
+// const constring="mongodb://localhost:27017"
+
+const constring = process.env.MONGO_URI;
 
 app.use(cors())
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+
+
+app.get("/", (req, res) => {
+    res.send("Backend is running! Available routes: /users, /get-appointments/:userid, etc.");
+});
 
 
 app.get('/users',(req,res)=>{
